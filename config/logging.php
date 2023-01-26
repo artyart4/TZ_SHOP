@@ -119,6 +119,7 @@ return [
         ],
         'telegram' => [
             'driver' => 'custom',
+            'name'=>'tg',
             'via' => \App\Logging\Telegram\TelegramLoggerFactory::class,
             'chat_id'=>-817417784,
             'token'=>'5943186200:AAEb7uQ1Xwx_D8y22lIi8tBIObQaDLbmVlw',
