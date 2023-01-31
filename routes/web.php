@@ -1,5 +1,6 @@
 <?php
 
+use App\Services\Telegram\Exceptions\TelegramBotApiException;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-
-    return view('welcfsdsdome');
+    logger()->channel('telegram')
+        ->info('fds');
+    return view('welfdfcome');
 });
+

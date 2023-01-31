@@ -53,7 +53,7 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['single','telegram'],
+            'channels' => ['single'],
             'ignore_exceptions' => false,
         ],
 
@@ -121,7 +121,7 @@ return [
             'driver' => 'custom',
             'name'=>'tg',
             'via' => \App\Logging\Telegram\TelegramLoggerFactory::class,
-            'chat_id'=>-817417784,
+            'chat_id'=>5976929895,
             'token'=>'5943186200:AAEb7uQ1Xwx_D8y22lIi8tBIObQaDLbmVlw',
             'level' => env('LOG_LEVEL', 'debug'),
         ],
