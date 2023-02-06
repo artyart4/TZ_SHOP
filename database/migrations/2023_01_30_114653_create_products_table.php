@@ -19,13 +19,13 @@ return new class extends Migration
             $table->timestamps();
             $table->string('title');
             $table->string('thumbnail')->nullable();
-            $table->string('slug')->nullable();
+            $table->string('slug')->unique();
             $table->unsignedInteger('price')->default(0);
             $table->foreignIdFor(\App\Models\Brand::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
 
         });
 
-        Schema::create('сategory_product', function (Blueprint $table) {
+        Schema::create('category_product', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->foreignIdFor(\App\Models\Category::class)->constrained()->cascadeOnUpdate()->cascadeOnDelete();
