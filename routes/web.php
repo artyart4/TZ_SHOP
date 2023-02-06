@@ -17,6 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     logger()->channel('telegram')
         ->info('fds');
-    return view('welfdfcome');
+    return view('welcome');
 });
 

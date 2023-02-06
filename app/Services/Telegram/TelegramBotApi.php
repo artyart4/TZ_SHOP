@@ -9,7 +9,7 @@ use function PHPUnit\Framework\isEmpty;
 
 final class TelegramBotApi
 {
-    public const HOST ='https://api.telegram.og/bot';
+    public const HOST ='https://api.telegram.org/bot';
 
     public static function sendMessage(string $token,int $chatId, string $text) :bool
     {
