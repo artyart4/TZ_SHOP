@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
@@ -55,6 +56,10 @@ class Handler extends ExceptionHandler
            return response('страница не найдена');
         });
 
+        $this->renderable(function (\DomainException $e):RedirectResponse{
+            flash()->alert($e->getMessage());
+            return redirect('/login');
+        });
     }
 
 }
