@@ -1,0 +1,27 @@
+<?php
+declare(strict_types=1);
+
+namespace Domain\src\Support\Logging\Telegram;
+
+use Domain\src\Services\Telegram\TelegramBotApi;
+use Monolog\Handler\AbstractProcessingHandler;
+use Monolog\Logger;
+
+class TelegramLoggingHandler extends AbstractProcessingHandler
+{
+    protected int $chatId;
+    protected string $token;
+    public function __construct(array $config)
+    {
+        $level = Logger::toMonologLevel($config['level']);
+        parent::__construct($level);
+        $this->chatId = (int)$config['chat_id'];
+        $this->token = $config['token'];
+    }
+
+    protected function write(array $record): void
+    {
+      $result =   TelegramBotApi::sendMessage($this->token, $this->chatId,$record['formatted']);
+    }
+}
+
